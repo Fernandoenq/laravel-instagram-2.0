@@ -29,3 +29,13 @@ Route::get('/posts/like/{post}', [PostController::class, 'like']);
 
 Route::post('/photo', [PostController::class, 'photostore']);
 Route::get('/photo/create', [PostController::class, 'photo']);
+
+
+Route::post('/images', [PostController::class, 'imagestore']);
+Route::get('/images/create', [PostController::class, 'image']);
+
+
+
+
+
+
