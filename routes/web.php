@@ -34,6 +34,9 @@ Route::get('/photo/create', [PostController::class, 'photo']);
 Route::post('/images', [PostController::class, 'imagestore']);
 Route::get('/images/create', [PostController::class, 'image']);
 
+Route::post('/document', [PostController::class, 'documenttore']);
+Route::get('/document/create', [PostController::class, 'document']);
+
 
 
 

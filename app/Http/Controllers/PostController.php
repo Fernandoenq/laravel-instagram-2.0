@@ -190,4 +190,26 @@ class PostController extends Controller
 
         return redirect('/dashboard');
     }
+
+    public function document()
+    {
+        return view('posts.document');
+    }
+
+    public function documentstore(Request $request)
+    {
+        $user = auth()->user();
+
+        $path = $request->file->store('public/documents');
+
+        Post::create(
+            [
+                'image' => Storage::url($path),
+                'description' => $request->description,
+                'user_id' => $user->id
+            ]
+        );
+
+        return redirect('/dashboard');
+    }
 }
