@@ -200,7 +200,10 @@ class PostController extends Controller
     {
         $user = auth()->user();
 
-        $path = $request->file->store('public/documents');
+        $path = $request->file->storeAs(
+            'public/documents',
+            $request->file->name
+        );
 
         Post::create(
             [
