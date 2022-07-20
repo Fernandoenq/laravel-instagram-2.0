@@ -145,4 +145,27 @@ class PostController extends Controller
     {
         //
     }
+
+    public function photo()
+    {
+        return view('posts.photo');
+    }
+
+    public function photostore(Request $request)
+    {
+        $user = auth()->user();
+
+        $path = $request->photo->store('public/file.jpg');
+
+        Post::create(
+            [
+                'image' => Storage::url($path),
+                'description' => $request->description,
+                'user_id' => $user->id
+            ]
+        );
+
+        return redirect('/dashboard');
+    }
+
 }
